@@ -21,7 +21,9 @@ namespace NZWalks.API.Data
         public DbSet<Walk> Walks { get; set; }
 
         public DbSet<Difficulty> Difficulties { get; set; }
-        public DbSet<Image> Images { get; set; }    
+
+        public DbSet<Image> Images { get; set; }
+           
         
         //seeding data Using entity framework core 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

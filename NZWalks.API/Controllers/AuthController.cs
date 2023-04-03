@@ -46,6 +46,7 @@ namespace NZWalks.API.Controllers
                 UserName = registerRequestDto.Username,
                 Email = registerRequestDto.Username
             };
+
             var identityResult = await userManager.CreateAsync(identityUser, registerRequestDto.Password);
 
             if(identityResult.Succeeded)
@@ -54,6 +55,7 @@ namespace NZWalks.API.Controllers
                 if (registerRequestDto.Roles != null && registerRequestDto.Roles.Any())
                 {
                     identityResult = await userManager.AddToRolesAsync(identityUser, registerRequestDto.Roles);
+
                     if(identityResult.Succeeded)
                     {
                         return Ok("user was register ! , please login ");
@@ -80,20 +82,22 @@ namespace NZWalks.API.Controllers
             {
                 //check the username with password 
                 var checkPasswordResult = await userManager.CheckPasswordAsync(user , loginRequestDto.Password);
+
                 if (checkPasswordResult)
                 {
                     //get roles for this user 
 
                     var roles = await userManager.GetRolesAsync(user);
 
-                    if(roles != null)
+                    if (roles != null)
                     {
-                        var jwttoken = tokenRepositary.CreateJwtToken(user, roles.ToList());
+                        var jwtToken = tokenRepositary.CreateJwtToken(user, roles.ToList());
+
                         var response = new LoginResponseDto
                         {
-                            JwtToken = jwttoken
+                            JwtToken = jwtToken
                         };
-                        return Ok(jwttoken);
+                        return Ok(response);
 
                     }
                     //create a token 

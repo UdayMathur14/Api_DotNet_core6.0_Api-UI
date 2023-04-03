@@ -21,14 +21,16 @@ namespace NZWalks.API.Controllers
     {
         private readonly NZwalksDbContext dbcontext;
         private readonly IMapper mapper;
+        private readonly ILogger<RegionsController> logger;
 
         public IRegionRepository RegionRepository { get; }
 
-        public RegionsController(NZwalksDbContext dbcontext , IRegionRepository regionRepository,IMapper mapper)
+        public RegionsController(NZwalksDbContext dbcontext , IRegionRepository regionRepository,IMapper mapper,ILogger<RegionsController> logger)
         {
             this.dbcontext = dbcontext;
             RegionRepository = regionRepository;
             this.mapper = mapper;
+            this.logger = logger;
         }
         //[HttpGet]
         //public IActionResult GetAll()
@@ -68,16 +70,17 @@ namespace NZWalks.API.Controllers
 
         //fetching the information with the help of Dtos
         [HttpGet]
-        [Authorize(Roles ="Reader")]
+        //[Authorize(Roles ="Reader")]
         //we want a reader authorise member to access this function 
         public async Task<IActionResult> GetAll()
         {
             //with the help of Interface known as IregionRepository 
-            
+
             //var regionsDomain = await RegionRepository.GetAllRegionsAsync();
 
-
-
+            //serilog framework and with the help of it we are using logging ,jha p bhi logger aa rha h smjh jaiyo ki logging kr rhe h 
+            //logging ka mtb h ki storing and capturing about the application behavior and operations during runtime 
+            //logger.LogInformation("getall regions action method was invocked ");
 
 
 
@@ -266,7 +269,9 @@ namespace NZWalks.API.Controllers
 
         [HttpDelete]
         [Route("{id:Guid}")]
+
         //both reader or writer can access this in the postman
+        //agr tum chahate ho ki koi bhi access krle toh roles mt likho khaali authorize likho 
         [Authorize(Roles = "Writer,Reader")]
 
         public async Task<IActionResult> Delete([FromRoute] Guid id)
