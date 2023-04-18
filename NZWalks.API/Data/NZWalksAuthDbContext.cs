@@ -49,6 +49,7 @@ namespace NZWalks.API.Data
             //if the roles don't exist in the database , this entity framework core migration will add or seed this data 
             //into the database .
 
+            //to do the migration we have to run ef core migration some differently 
             //migration krega to dikhat ayegi kyuki phele dbcontext ho chuka h so we write like this 
             //add-migration "dsd" -context "nzwalksauthdbcontext"
             //same update m bhi , hme specify krna hoga ki hme konsa update krna h with -context after command in the ""

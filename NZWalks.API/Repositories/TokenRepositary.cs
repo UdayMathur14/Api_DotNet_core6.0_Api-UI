@@ -13,6 +13,7 @@ namespace NZWalks.API.Repositories
 
         public TokenRepositary(IConfiguration configuration)
         {
+            //configuration is used to connect with the appsetting json 
             this.configuration = configuration;
         }
         public string CreateJwtToken(IdentityUser user, List<string> roles)

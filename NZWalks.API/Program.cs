@@ -13,12 +13,14 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//to see how our application is works
 var logger = new LoggerConfiguration()
     .WriteTo.Console()
-    .MinimumLevel.Information()
+    .WriteTo.File("Logs/NzWalks_Log.text" , rollingInterval :RollingInterval.Minute)
+    .MinimumLevel.Warning()
     .CreateLogger();
 
-
+//clear the providers that we have injected till now 
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
 

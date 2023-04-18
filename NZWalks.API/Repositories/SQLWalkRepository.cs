@@ -30,6 +30,7 @@ namespace NZWalks.API.Repositories
             var walks = dbContext.Walks.Include("Difficulty").Include("Region").AsQueryable();
 
             //apply filtering 
+            //both the paramaters are not null means it has some values in it 
             if(string.IsNullOrWhiteSpace(filterOn) ==false && string.IsNullOrWhiteSpace(filterQuery) == false  )
             {
                 if (filterOn.Equals("Name", StringComparison.OrdinalIgnoreCase))
@@ -40,7 +41,7 @@ namespace NZWalks.API.Repositories
             }
 
             //sorting 
-
+            //agr sort by null nhi h 
             if(string.IsNullOrWhiteSpace(sortBy)==false )
             {
                 if(sortBy.Equals("Name", StringComparison.OrdinalIgnoreCase))

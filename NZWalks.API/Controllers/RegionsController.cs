@@ -7,6 +7,7 @@ using NZWalks.API.Data;
 using NZWalks.API.Models.Domain;
 using NZWalks.API.Models.DTO;
 using NZWalks.API.Repositories;
+using System.Text.Json;
 
 namespace NZWalks.API.Controllers
 {
@@ -17,6 +18,7 @@ namespace NZWalks.API.Controllers
     //region api is hows 401 error which is a unorized user , so to overcome this so create some users for authentciate 
     //and then we can use these apis
    // [Authorize]
+   //It is an attribute to block unauthorize users 
     public class RegionsController : ControllerBase
     {
         private readonly NZwalksDbContext dbcontext;
@@ -59,10 +61,10 @@ namespace NZWalks.API.Controllers
         //    //};
         //    //return Ok(regions);
 
-        //    // without the use of the in memory , but use databse 
+        //    // without the use of the in memory , but use database 
 
-        //    //hmne ek dbcontext ki class banai aur uske ander hmne ek table name declare kiya hua tah 
-        //    //region hmne usses ccess kiya ur saari list nikaal li usme m and api ko ddedi
+        //    //hmne ek dbcontext ki class banai aur uske ander hmne ek table name declare kiya hua tha 
+        //    //region hmne usses access kiya ur saari list nikaal li usme m and api ko dedi
         //    var regions = dbcontext.Regions.ToList();
         //    return Ok(regions);
         //}
@@ -80,8 +82,12 @@ namespace NZWalks.API.Controllers
 
             //serilog framework and with the help of it we are using logging ,jha p bhi logger aa rha h smjh jaiyo ki logging kr rhe h 
             //logging ka mtb h ki storing and capturing about the application behavior and operations during runtime 
-            //logger.LogInformation("getall regions action method was invocked ");
+            logger.LogInformation("getall regions action method was invocked ");
 
+            //if i change the minimum level.information to warning , now we are not able to see any information in the console 
+            //side , so to see the warning we have to do like this 
+
+            logger.LogError("This is a error log");
 
 
 
@@ -110,6 +116,8 @@ namespace NZWalks.API.Controllers
 
             //with the use of auto mapper 
            var region =  mapper.Map<List<RegionDto>>(regions);
+                                                                            //change the object into json 
+            logger.LogInformation($"Finished Getallregions request with data {JsonSerializer.Serialize(region)}");
 
             //return Ok(region);
             return Ok(mapper.Map<List<RegionDto>>(regions));
@@ -157,7 +165,7 @@ namespace NZWalks.API.Controllers
         public async Task<IActionResult> Create([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
             //return a boolean value , hmne addregion dto m jaake required field rakha and then usme define kra ki minimum 3 char 
-            // adn maximum 3 hone chchiye model state ussi ko laagu krta h ki check krega ki addregiondto m jo bhi hm cheez 
+            // and maximum 3 hone chahiye model state ussi ko laagu krta h ki check krega ki addregiondto m jo bhi hm cheez 
             //daal rhe h usko validate kro 
 
             //check krta h ki if my model is valid or not 
