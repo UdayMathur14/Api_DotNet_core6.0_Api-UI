@@ -9,8 +9,6 @@ namespace NZWalks.API.Models.DTO
         [MaxLength(5,ErrorMessage ="max length should be 5 ")]
         public string Code { get; set; }
 
-        [Required]
-
 
         public string Name { get; set; }
 
