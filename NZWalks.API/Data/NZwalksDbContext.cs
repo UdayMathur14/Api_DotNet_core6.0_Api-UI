@@ -2,7 +2,7 @@
 using NZWalks.API.Migrations;
 using NZWalks.API.Models.Domain;
 
-
+//Work of DBContext
 //maintain connection to database 
 //Track changes 
 //perform crud operations
@@ -15,7 +15,7 @@ namespace NZWalks.API.Data
         {
             
         }   
-
+        //DbSet - //Collections of entity in Database
         public DbSet<Region> Regions { get; set; }
 
         public DbSet<Walk> Walks { get; set; }

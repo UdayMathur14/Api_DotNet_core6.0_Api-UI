@@ -8,14 +8,11 @@
 
         public string Name { get; set; }    
 
-        public string? RegionImageUrl { get; set; }
+        public string? RegionImageUrl { get; set; } //string? means nullable value means can be null .
         
         //Navigation property , one region can have multiple walks
 
        // public IEnumerable<Walk> Walks { get; set;}
-
-
-
 
 
     }
