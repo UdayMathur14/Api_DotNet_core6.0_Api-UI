@@ -1,0 +1,20 @@
+Rest = Represential state transfer. based on resources
+==how web services should be designed and interact with each other .
+
+Resource(Anything that can be indentified and manipulated through a web service)
+
+//each Url identifies a specific resource and http verbs are used to perform actions on theses resources.
+
+Http verb define the type of actions that can be performed on a resource identified by a Url.
+
+HTTP Verbs:
+1- Get - http://y/api/empolyees - (GetAlEmployees)
+	Get - http://y/api/empolyees/{id} - (GetSingleEmployeeById)
+2 - Post - http://y/api/empolyees - (createAnEmployee)
+3- Put - http://y/api/empolyees/{id} - (UpdateAnEmployeeByid)
+4 - Delete - http://y/api/empolyees/{id} -(deleteanEmployeeByid)
+
+
+
+
+
