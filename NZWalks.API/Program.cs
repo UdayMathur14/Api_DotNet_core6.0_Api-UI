@@ -35,7 +35,7 @@ builder.Services.AddSwaggerGen(options =>
 {
 
     //this is the one time setup that we have to make so that we are able to access the authentication and add authorization in the header 
-    //when we are accessing the endpoints using swagger 
+    //when we are accessing the endpoints using swagger , basically use token and auth in swagger rather than postman 
     options.SwaggerDoc("v1",new OpenApiInfo { Title = "nz walks api ",Version = "v1"});
     options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme, new OpenApiSecurityScheme
     {
