@@ -15,6 +15,10 @@ HTTP Verbs:
 4 - Delete - http://y/api/empolyees/{id} -(deleteanEmployeeByid)
 
 
+DTO'S :
+used to trasfer data between different layers
+
+
 
 
 

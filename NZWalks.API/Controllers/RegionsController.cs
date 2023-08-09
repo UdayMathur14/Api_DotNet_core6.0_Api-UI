@@ -102,7 +102,6 @@ namespace NZWalks.API.Controllers
 
             var regionsDto = new List<RegionDto>();
             //without the use of automapper
-
             //foreach (var region in regions)
             //{
             //    regionsDto.Add(new RegionDto()
@@ -127,6 +126,7 @@ namespace NZWalks.API.Controllers
 
         //get single region or get region by id with the help of databse 
         [HttpGet]
+        //route means in the url 
         [Route("{id:Guid}")]
         [Authorize(Roles = "Reader")]
 
@@ -160,7 +160,8 @@ namespace NZWalks.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Writer")]
+        [Route("postRegions")]
+        //[Authorize(Roles = "Writer")]
 
         public async Task<IActionResult> Create([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
