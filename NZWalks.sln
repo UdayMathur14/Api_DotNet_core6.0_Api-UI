@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{385B71F3
 		notes = notes
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NZWaksUI", "NZWaksUI\NZWaksUI.csproj", "{21ABAB77-F913-4AA9-8C87-4DCFF2591F08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{8B18AD4E-8D11-424C-A95D-00F9FCC5D159}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B18AD4E-8D11-424C-A95D-00F9FCC5D159}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B18AD4E-8D11-424C-A95D-00F9FCC5D159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21ABAB77-F913-4AA9-8C87-4DCFF2591F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21ABAB77-F913-4AA9-8C87-4DCFF2591F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21ABAB77-F913-4AA9-8C87-4DCFF2591F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21ABAB77-F913-4AA9-8C87-4DCFF2591F08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

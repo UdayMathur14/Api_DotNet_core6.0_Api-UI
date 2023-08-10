@@ -17,7 +17,7 @@ namespace NZWalks.API.Controllers
     //after writing this our region apis are not working because they need a authorize user to use it so if you test 
     //region api is hows 401 error which is a unorized user , so to overcome this so create some users for authentciate 
     //and then we can use these apis
-    [Authorize]
+    //[Authorize]
    //It is an attribute to block unauthorize users 
     public class RegionsController : ControllerBase
     {
@@ -128,7 +128,7 @@ namespace NZWalks.API.Controllers
         [HttpGet]
         //route means in the url 
         [Route("{id:Guid}")]
-        [Authorize(Roles = "Reader")]
+       // [Authorize(Roles = "Reader")]
 
         public async Task<IActionResult> GetbyId([FromRoute] Guid id)
         {
@@ -223,7 +223,7 @@ namespace NZWalks.API.Controllers
 
         [HttpPut]
         [Route("{id:Guid}")]
-        [Authorize(Roles = "Writer")]
+        //[Authorize(Roles = "Writer")]
 
         public async Task<IActionResult>Update([FromRoute] Guid id , [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
         {
@@ -281,7 +281,7 @@ namespace NZWalks.API.Controllers
 
         //both reader or writer can access this in the postman
         //agr tum chahate ho ki koi bhi access krle toh roles mt likho khaali authorize likho 
-        [Authorize(Roles = "Writer,Reader")]
+        //[Authorize(Roles = "Writer,Reader")]
 
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
