@@ -4,9 +4,84 @@
 @{
 }
 
-<h1 class="mt-3">Regions</h1>
+@model IEnumerable<NZWaksUI.Models.RegionDto>
+@{
+
+}
+
+<h1>class= "mt-3"Regions</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Code</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var walk in Model)
+        {
+            <tr>
+                <td>@walk.Id</td>
+                <td>@walk.Name</td>
+                <td>@walk.Code</td>
+            </tr>
+        }
+    </tbody>
+</table>   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h1 class="mt-3">Regions</h1>
 
 @if (ViewBag.Response != null)
 {
     <p>@ViewBag.Response</p>
-}
+}*@

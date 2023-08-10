@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NZWaksUI.Models;
 
 namespace NZWaksUI.Controllers
 {
@@ -12,6 +13,7 @@ namespace NZWaksUI.Controllers
 
         public async Task<IActionResult> Index()
         {
+            List<RegionDto> resp = new List<RegionDto>();    
             try
             {
                 var client = httpClientFactory.CreateClient();
@@ -20,16 +22,18 @@ namespace NZWaksUI.Controllers
 
                 response.EnsureSuccessStatusCode();
 
-                var stringResponseBody = await response.Content.ReadAsStringAsync();
+                //var stringResponseBody = await response.Content.ReadAsStringAsync();
+                //var stringResponseBody = await response.Content.ReadFromJsonAsync<IEnumerable<RegionDto>>();
 
-                ViewBag.response = stringResponseBody;
+                resp.AddRange(await response.Content.ReadFromJsonAsync<IEnumerable<RegionDto>>());
+                //ViewBag.response = stringResponseBody;
             }
             catch(Exception ex) 
             {
 
             }
 
-            return View();
+            return View(resp);
         }
     }
 }
