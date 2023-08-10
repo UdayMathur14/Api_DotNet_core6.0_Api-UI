@@ -12,7 +12,8 @@ namespace NZWalks.API.CustomActionFilters
 
         public override void OnActionExecuted(ActionExecutedContext context)
         {
-            if(context.ModelState.IsValid==false) {
+            if (context.ModelState.IsValid == false)
+            {
                 context.Result=new BadRequestResult();  
             }
         }
