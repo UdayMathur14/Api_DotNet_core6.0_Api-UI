@@ -35,5 +35,11 @@ namespace NZWaksUI.Controllers
 
             return View(resp);
         }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
     }
 }
