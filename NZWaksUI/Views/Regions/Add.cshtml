@@ -1,19 +1,21 @@
-﻿<h1 class="mt-3">Add Region</h1>
+﻿@model NZWaksUI.Models.AddRegionClass
+
+<h1 class="mt-3">Add Region</h1>
 <form method="post" class="mt-3">
 
     <div class="mt-3">
         <label class="form-label">Code</label>
-        <input type="text" name="name" value="form-control"/>
+        <input type="text" class="form-control" asp-for="Code"/>
     </div>
 
     <div class="mt-3">
         <label class="form-label">Name</label>
-        <input type="text" name="name" value="form-control" />
+        <input type="text" class="form-control" asp-for="Name" />
     </div>
 
     <div class="mt-3">
         <label class="form-label">Image Url</label>
-        <input type="text" name="name" value="form-control" />
+        <input type="text" class="form-control" asp-for="RegionImageUrl" />
     </div>
 
     <div class="mt-3">
