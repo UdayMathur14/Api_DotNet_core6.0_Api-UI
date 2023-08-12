@@ -91,5 +91,30 @@ namespace NZWaksUI.Controllers
 
             return View(null);
         }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Edit(RegionDto regionDto)
+        {
+            var client = httpClientFactory.CreateClient();
+
+            var request = new HttpRequestMessage()
+            {
+                Method = HttpMethod.Put,
+                RequestUri = new Uri($"https://localhost:7209/api/Regions/{regionDto.Id}"),
+
+                Content = new StringContent(JsonSerializer.Serialize(regionDto), Encoding.UTF8, "Application/json")
+            };
+            var responseMessage = await client.SendAsync(request);
+
+            responseMessage.EnsureSuccessStatusCode();
+
+            var response = await responseMessage.Content.ReadFromJsonAsync<RegionDto>();
+
+            if(response != null) { 
+                return RedirectToAction("Edit" , "Regions");
+            }
+            return View();
+        }
     }
 }
