@@ -116,5 +116,27 @@ namespace NZWaksUI.Controllers
             }
             return View();
         }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Delete(RegionDto regionDto)
+        {
+            try
+            {
+                var client = httpClientFactory.CreateClient();
+
+                var responseMessage = await client.DeleteAsync($"https://localhost:7209/api/Regions/{regionDto.Id}");
+
+                responseMessage.EnsureSuccessStatusCode();
+
+                return RedirectToAction("Index", "Regions");
+            }
+            catch(Exception ex) 
+            {
+
+            }
+
+            return View("Edit");
+        }
     }
 }
