@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using NZWaksUI.Models;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using static System.Net.WebRequestMethods;
 
 namespace NZWaksUI.Controllers
 {
@@ -45,11 +47,32 @@ namespace NZWaksUI.Controllers
             return View();
         }
 
-        [HttpPost]
 
-        public async Task<IActionResult> Add(AddRegionClass addRegionClass)
+        [HttpPost]
+        public async Task<IActionResult> Add(AddRegionClass model)
         {
             var client = httpClientFactory.CreateClient();
+
+            var httpRequestMessage = new HttpRequestMessage()
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri("https://localhost:7209/api/Regions/postRegions"),
+                
+                Content = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "Application/json")
+            };
+
+            var responseMessage = await client.SendAsync(httpRequestMessage);
+
+            responseMessage.EnsureSuccessStatusCode();
+
+            var response = await responseMessage.Content.ReadFromJsonAsync<RegionDto>();
+
+            if (response != null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View();
 
         }
     }

@@ -18,7 +18,7 @@ namespace NZWalks.API.Controllers
     //region api is hows 401 error which is a unorized user , so to overcome this so create some users for authentciate 
     //and then we can use these apis
     //[Authorize]
-   //It is an attribute to block unauthorize users 
+    //It is an attribute to block unauthorize users 
     public class RegionsController : ControllerBase
     {
         private readonly NZwalksDbContext dbcontext;
@@ -27,7 +27,7 @@ namespace NZWalks.API.Controllers
 
         public IRegionRepository RegionRepository { get; }
 
-        public RegionsController(NZwalksDbContext dbcontext , IRegionRepository regionRepository,IMapper mapper,ILogger<RegionsController> logger)
+        public RegionsController(NZwalksDbContext dbcontext, IRegionRepository regionRepository, IMapper mapper, ILogger<RegionsController> logger)
         {
             this.dbcontext = dbcontext;
             RegionRepository = regionRepository;
@@ -114,8 +114,8 @@ namespace NZWalks.API.Controllers
             //}
 
             //with the use of auto mapper 
-           var region =  mapper.Map<List<RegionDto>>(regions);
-                                                                            //change the object into json 
+            var region = mapper.Map<List<RegionDto>>(regions);
+            //change the object into json 
             logger.LogInformation($"Finished Getallregions request with data {JsonSerializer.Serialize(region)}");
 
             //return Ok(region);
@@ -128,11 +128,11 @@ namespace NZWalks.API.Controllers
         [HttpGet]
         //route means in the url 
         [Route("{id:Guid}")]
-       // [Authorize(Roles = "Reader")]
+        // [Authorize(Roles = "Reader")]
 
         public async Task<IActionResult> GetbyId([FromRoute] Guid id)
         {
-           
+
             // this is with the help of Interface 
             //var regionDomain = await RegionRepository.GetById(id);
             //return Ok(regionDomain);
@@ -225,7 +225,7 @@ namespace NZWalks.API.Controllers
         [Route("{id:Guid}")]
         //[Authorize(Roles = "Writer")]
 
-        public async Task<IActionResult>Update([FromRoute] Guid id , [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
         {
             //call the function with the help of interface , hmne dto ko domain model m convert krna padega
             //map dto to domain model 
@@ -272,7 +272,7 @@ namespace NZWalks.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            
+
         }
 
 
@@ -297,11 +297,11 @@ namespace NZWalks.API.Controllers
 
 
 
-            var regionDomainModel= await  dbcontext.Regions.FirstOrDefaultAsync(x => x.Id == id);
+            var regionDomainModel = await dbcontext.Regions.FirstOrDefaultAsync(x => x.Id == id);
 
             if (regionDomainModel == null)
             {
-                return NotFound();  
+                return NotFound();
             }
 
             //delete region 
@@ -320,10 +320,10 @@ namespace NZWalks.API.Controllers
             //map a domain model dto 
 
             return Ok(regionDomainModel);
-        
-        
+
+
         }
 
-       
+
     }
 }

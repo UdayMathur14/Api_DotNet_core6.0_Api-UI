@@ -2,11 +2,11 @@
 {
     public class AddRegionClass
     {
-        public int Code { get; set; }
+        public string Code { get; set; } 
 
-        public int Name { get; set; }
+        public string Name { get; set; }
 
-        public int RegionImageUrl { get; set; }
+        public string RegionImageUrl { get; set; }
 
     }
 }
