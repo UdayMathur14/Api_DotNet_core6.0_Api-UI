@@ -57,7 +57,7 @@ namespace NZWaksUI.Controllers
             {
                 Method = HttpMethod.Post,
                 RequestUri = new Uri("https://localhost:7209/api/Regions/postRegions"),
-                
+
                 Content = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "Application/json")
             };
 
@@ -85,7 +85,8 @@ namespace NZWaksUI.Controllers
 
             var response = await client.GetFromJsonAsync<RegionDto>($"https://localhost:7209/api/regions/{id.ToString()}");
 
-            if (response != null) {
+            if (response != null)
+            {
                 return View(response);
             }
 
@@ -111,8 +112,9 @@ namespace NZWaksUI.Controllers
 
             var response = await responseMessage.Content.ReadFromJsonAsync<RegionDto>();
 
-            if(response != null) { 
-                return RedirectToAction("Edit" , "Regions");
+            if (response != null)
+            {
+                return RedirectToAction("Edit", "Regions");
             }
             return View();
         }
@@ -131,7 +133,7 @@ namespace NZWaksUI.Controllers
 
                 return RedirectToAction("Index", "Regions");
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
 
             }
