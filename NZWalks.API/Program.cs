@@ -67,7 +67,7 @@ builder.Services.AddDbContext<NZwalksDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("NZWalks")));
 
 
-//injec auth dbcontext for authenctication 
+//inject auth dbcontext for authenctication 
 builder.Services.AddDbContext<NZWalksAuthDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("NZWalksAuthConnectionString")));
 
