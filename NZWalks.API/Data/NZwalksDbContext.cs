@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NZWalks.API.Migrations;
 using NZWalks.API.Models.Domain;
 
 //Work of DBContext

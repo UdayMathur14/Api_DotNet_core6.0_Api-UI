@@ -12,8 +12,8 @@ using NZWalks.API.Data;
 namespace NZWalks.API.Migrations
 {
     [DbContext(typeof(NZwalksDbContext))]
-    [Migration("20230325075211_seeding data for difficulties and regions")]
-    partial class seedingdatafordifficultiesandregions
+    [Migration("20231211162924_mig")]
+    partial class mig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,6 +55,35 @@ namespace NZWalks.API.Migrations
                             Id = new Guid("bc69a55d-92c8-4f7b-a84e-0efc2666437b"),
                             Name = "Hard"
                         });
+                });
+
+            modelBuilder.Entity("NZWalks.API.Models.Domain.Image", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FileDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileExtension")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("FileSizeInBytes")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("NZWalks.API.Models.Domain.Region", b =>
@@ -164,7 +193,7 @@ namespace NZWalks.API.Migrations
                         .IsRequired();
 
                     b.HasOne("NZWalks.API.Models.Domain.Region", "Region")
-                        .WithMany("Walks")
+                        .WithMany()
                         .HasForeignKey("RegionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -172,11 +201,6 @@ namespace NZWalks.API.Migrations
                     b.Navigation("Difficulty");
 
                     b.Navigation("Region");
-                });
-
-            modelBuilder.Entity("NZWalks.API.Models.Domain.Region", b =>
-                {
-                    b.Navigation("Walks");
                 });
 #pragma warning restore 612, 618
         }
