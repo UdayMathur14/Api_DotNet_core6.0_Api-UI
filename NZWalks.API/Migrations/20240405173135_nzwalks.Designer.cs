@@ -12,8 +12,8 @@ using NZWalks.API.Data;
 namespace NZWalks.API.Migrations
 {
     [DbContext(typeof(NZwalksDbContext))]
-    [Migration("20231211162924_mig")]
-    partial class mig
+    [Migration("20240405173135_nzwalks")]
+    partial class nzwalks
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
