@@ -6,13 +6,13 @@ namespace NZWalks.API.Models.DTO
     {
         [Required]
         [MinLength(3,ErrorMessage ="code has to be minimum of 3 characters")]
-        [MaxLength(3, ErrorMessage = "code has to be maximum of 3 characters")]
+        [MaxLength(10, ErrorMessage = "code has to be maximum of 3 characters")]
 
 
         public string Code { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+        
+        public string? Name { get; set; }
 
         public string? RegionImageUrl { get; set; }
     }

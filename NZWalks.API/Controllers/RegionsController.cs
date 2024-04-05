@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NZWalks.API.Data;
@@ -209,7 +207,7 @@ namespace NZWalks.API.Controllers
                     RegionImageUrl = regionDomainModel.RegionImageUrl
                 };
                 //post method does not return an ok responce 
-                return CreatedAtAction(nameof(GetbyId), new { id = regionDto.Id }, regionDto);
+                return CreatedAtAction(nameof(GetbyId), new { id = regionDto.Id }, addRegionRequestDto);
             }
             else
             {

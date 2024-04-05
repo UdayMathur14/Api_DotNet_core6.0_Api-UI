@@ -4,9 +4,9 @@
     {
         public Guid Id { get; set; }    
 
-        public string Code { get; set; }    
+        public string? Code { get; set; }    
 
-        public string Name { get; set; }    
+        public string? Name { get; set; }    
 
         public string? RegionImageUrl { get; set; } //string? means nullable value means can be null .
         
