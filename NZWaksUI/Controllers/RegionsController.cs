@@ -23,7 +23,7 @@ namespace NZWaksUI.Controllers
             {
                 var client = httpClientFactory.CreateClient();
 
-                var response = await client.GetAsync("./api/regions");
+                var response = await client.GetAsync("https://localhost:7209/api/regions");
 
                 response.EnsureSuccessStatusCode();
 
