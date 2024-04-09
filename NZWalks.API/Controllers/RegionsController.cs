@@ -13,7 +13,7 @@ namespace NZWalks.API.Controllers
     [Route("api/[controller]")]
     //use authorize attribute to block unauthenicated users
     //after writing this our region apis are not working because they need a authorize user to use it so if you test 
-    //region api is hows 401 error which is a unorized user , so to overcome this so create some users for authentciate 
+    //region api is thows 401 error which is a unorized user , so to overcome this so create some users for authentciate 
     //and then we can use these apis
     //[Authorize]
     //It is an attribute to block unauthorize users 
