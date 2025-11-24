@@ -1,0 +1,14 @@
+{
+    "commonAPI": "http://111.93.61.253:8086/",
+    "umsAPIURL": "http://111.93.61.253:8082/api/",
+    "mfgAPIURL": "http://192.168.29.100:84/api/",
+    "svcAPIURL": "http://111.93.61.253:8084/api/",
+    "gtmAPIURL": "http://111.93.61.253:8085/api/",
+    "dmdcAPIURL": "http://111.93.61.253:8089/api/",
+    "umsURL": "http://111.93.61.253:3252",  
+    "mfgURL": "http://111.93.61.253:9090",
+    "svcURL": "http://111.93.61.253:9091",
+    "gtmURL": "http://111.93.61.253:9092",
+    "dmdcURL": "http://111.93.61.253:9094"
+    
+}
